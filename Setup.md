@@ -72,6 +72,11 @@ Overall, the setup process provided valuable insight into how the system is stru
     <td><img src="./View/evidence-screenshots/App_running.png" alt="App running" style="width: 100%;"/></td>
     <td><img src="./View/evidence-screenshots/Successful_build.png" alt="Build Successfully" style="width: 100%;"/></td>
   </tr>
+
+  <tr>
+    <td align="center">App running</td>
+    <td align="center">Build Successfully</td>
+  </tr>
 </table>
 
 
