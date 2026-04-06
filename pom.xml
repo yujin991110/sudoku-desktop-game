@@ -59,17 +59,17 @@
             <dependency>
                 <groupId>org.jooq</groupId>
                 <artifactId>jooq</artifactId>
-                <version>3.19.9</version>
+                <version>3.21.1</version>
             </dependency>
             <dependency>
                 <groupId>org.jooq</groupId>
                 <artifactId>jooq-meta</artifactId>
-                <version>3.19.9</version>
+                <version>3.21.1</version>
             </dependency>
             <dependency>
                 <groupId>org.jooq</groupId>
                 <artifactId>jooq-codegen</artifactId>
-                <version>3.19.9</version>
+                <version>3.21.1</version>
             </dependency>
             <dependency>
                 <groupId>org.xerial</groupId>
@@ -204,7 +204,7 @@
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.8.11</version>
+                    <version>0.8.14</version>
                     <executions>
                         <execution>
                             <id>default-prepare-agent</id>
@@ -325,7 +325,7 @@
             <plugin>
                 <groupId>org.jooq</groupId>
                 <artifactId>jooq-codegen-maven</artifactId>
-                <version>3.19.9</version>
+                <version>3.21.1</version>
             </plugin>
 
         </plugins>

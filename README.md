@@ -21,6 +21,10 @@
 
 Multi-Module Maven project (MVC) of Sudoku Game with JavaFX GUI. The app provides the ability to choose different levels of difficulty, change the language, save to file, save to DB, and load the data from the file or from the DB. The game can be saved whenever a user wants to do it and save current progress to a file or DB and again load data to continue the started game in next session.
 
+## Onboarding Steps
+1. Getting the System Running [at the following link](Setup.md)
+2. Understanding the System [at the following link]
+
 ## In-Game Screenshots
 
 ### Main Menu
