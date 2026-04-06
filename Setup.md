@@ -66,5 +66,12 @@ Through this process, I learned that:
 
 Overall, the setup process provided valuable insight into how the system is structured and how its components interact, which was helpful for understanding the codebase in later stages.
 
+### Evidence
+<table>
+  <tr>
+    <td><img src="./View/evidence-screenshots/App_running.png" alt="App running" style="width: 100%;"/></td>
+    <td><img src="./View/evidence-screenshots/Successful_build.png" alt="Build Successfully" style="width: 100%;"/></td>
+  </tr>
+</table>
 
 
