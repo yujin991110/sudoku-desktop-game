@@ -12,6 +12,7 @@ This creates a situation where:
 
 This violates separation of concerns and makes the system harder to maintain and extend.
 
+<br>
 
 ### Affected classes and modules
 This issue primarily affects the following modules and classes:
@@ -32,6 +33,7 @@ This issue primarily affects the following modules and classes:
 The dependency flow looks like: JdbcSudokuBoardDao → SudokuBoard → SudokuField  
 This shows that the persistence layer depends directly on internal domain structures.
 
+<br>
 
 ### Architectural risk
 This design introduces several risks:
@@ -51,6 +53,7 @@ Testing persistence requires constructing full domain objects, increasing test c
 **5. Risk of hidden bugs**  
 Because there is no clear abstraction layer between storage and domain, inconsistencies between database representation and in-memory objects may occur.
 
+<br>
 
 ### Proposed seam for safe modification
 To reduce coupling and improve maintainability, I would introduce a mapping layer (seam) between the persistence layer and the domain model.
@@ -62,12 +65,14 @@ Responsibilities:
 - Convert database records → domain objects
 - Convert domain objects → database format
 
+<br>
 
 ### New structure:
 JdbcSudokuBoardDao → SudokuBoardMapper → SudokuBoard
 
 Instead of: JdbcSudokuBoardDao → SudokuBoard (direct dependency)
 
+<br>
 
 ### Benefits of introducing this seam
 **1. Reduced coupling**  
@@ -85,6 +90,7 @@ New persistence mechanisms can reuse the same mapping logic.
 **5. Safer refactoring**  
 Domain and persistence layers can evolve independently with reduced risk.
 
+<br>
 
 ### What needs protection via tests
 If this change were implemented, the following should be protected with tests:
@@ -96,6 +102,8 @@ Existing tests such as:
 - `JdbcSudokuBoardDaoTest`
 - `FileSudokuBoardDaoTest`
 would need to be extended or complemented with dedicated mapper tests.
+
+<br>
 
 ### Final reflection
 The current system works, but the tight coupling between persistence and domain logic increases maintenance cost and risk of future changes. Introducing a mapping layer would significantly improve modularity, testability, and long-term maintainability without requiring a full system rewrite.

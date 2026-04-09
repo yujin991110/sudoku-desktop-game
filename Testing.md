@@ -3,7 +3,7 @@
 ### Presence of tests
 Tests are present in the repository. They are organized across multiple modules, primarily within the `Model`, `Dao`, and `JdbcDao` projects, each containing a `src/test/java/...` directory.
 
-For example:
+**For example:**
 - Model/src/test/java/... contains:
   - `UniqueCheckerTest`
   - `SudokuBaseContainerTest`
@@ -17,6 +17,7 @@ For example:
 
 The `View` module does not contain any test files, indicating that the UI layer is currently not covered by automated tests.
 
+<br>
 
 ### Were the tests runnable?
 Yes, the tests were runnable.
@@ -24,6 +25,8 @@ Yes, the tests were runnable.
 I executed the full test suite using: `mvn test`
 
 All tests across the modules ran successfully with no failures or errors.
+
+<br>
 
 ### Summary of results:
 - **Model module**: 44 tests passed
@@ -33,6 +36,7 @@ All tests across the modules ran successfully with no failures or errors.
 
 During execution, repeated log messages such as “Invalid Sudoku board after setting field value” appeared in `SudokuBoardTest`. However, these did not result in test failures and appear to be part of validation scenarios intentionally tested.
 
+<br>
 
 ### Additional observation: running a single test
 When attempting to run only my newly added test using:
@@ -48,6 +52,7 @@ To resolve this, I restricted execution to the Model module:
 This successfully ran only the new test.  
 This behavior highlights an important structural aspect of the system: tests are module-specific, and running targeted tests requires awareness of module boundaries.
 
+<br>
 
 ### Coverage and what it implies
 JaCoCo coverage reports were generated during the build process for each module. The number of tests suggests:
@@ -60,6 +65,7 @@ This implies that:
 - Persistence and UI layers are more vulnerable to regression
 - Coverage alone does not guarantee correctness, but it provides a useful indicator of testing focus
 
+<br>
 
 ### Maintainability and risk
 The presence of automated tests improves maintainability, especially in the model layer where correctness is critical.
@@ -71,12 +77,14 @@ However, there are risks:
 
 Overall, the system has a solid foundation for testing core logic, but uneven coverage introduces risk in other parts of the system.
 
+<br>
 
 ### Required: Implement one automated test
 ### What I chose to test and why
 I implemented a test for the `SudokuField` class, specifically verifying that changing the field’s value correctly triggers property change notifications.  
 This behavior is important because other components, especially the UI, may rely on these notifications to update the display. If this mechanism breaks, the application could behave inconsistently even if the internal state is correct.
 
+<br>
 
 ### Type of test
 This is a unit test because:
@@ -84,6 +92,7 @@ This is a unit test because:
 - It does not depend on external systems (e.g., database, file system, UI)
 - It verifies behavior in isolation
 
+<br>
 
 ### Test execution result
 I executed the test independently using:  
@@ -95,6 +104,7 @@ The test ran successfully:
 - Failures: 0
 - Errors: 0
 
+<br>
 
 ### Refactoring required
 No refactoring was required to enable this test.  
@@ -105,12 +115,14 @@ The SudokuField class already exposes methods such as:
 
 This indicates that the class was already designed with testability in mind.
 
+<br>
 
 ### Location of test file
 The test file is located at:
 
 `Model/src/test/java/models/SudokuFieldPropertyChangeTest.java`
 
+<br>
 
 ### Final reflection
 Overall, the project includes a functioning automated test suite with strong coverage in the model layer. However, the absence of tests in the UI layer and limited coverage in persistence layers suggest areas for improvement. While the existing tests provide confidence in core functionality, expanding test coverage would significantly improve the system’s maintainability and reliability.

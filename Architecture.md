@@ -9,6 +9,7 @@ From analyzing the project structure, the system follows a layered architecture 
 
 While the project is not a strict MVC implementation, it clearly separates concerns between UI, business logic, and data access, which is consistent with a layered design.
 
+<br>
 
 ### How Responsibilities Are Divided Across Packages and Classes
 Responsibilities are divided reasonably clearly across the codebase.
@@ -58,6 +59,7 @@ Persistence is split into two parts:
 
     This separation is useful because it distinguishes general persistence intent from concrete database implementation.
 
+<br>
 
 ### Is There Separation Between UI and Logic?
 
@@ -93,6 +95,7 @@ User clicks “load from DB” → ```MainMenuController.loadSavedSudokuGameFrom
 
 So yes, there is package-level separation, but the View layer still directly coordinates model and persistence operations.
 
+<br>
 
 ### Where Is Coupling High?
 A major area of high coupling is between the View layer and the Model layer.  
@@ -159,6 +162,7 @@ dsl.insertInto(SUDOKU_FIELDS) ...
 ```
 This makes the persistence implementation very specific to its current technology stack. Replacing SQLite or JOOQ would require significant DAO changes.
 
+<br>
 
 ### Where Is Cohesion Strong or Weak?
 ### Strong cohesion
@@ -182,6 +186,7 @@ These all relate directly to board state and board validity. Even though the cla
 
 Another reasonably cohesive part is `SudokuField.java`, which focuses on storing a single value and notifying listeners when that value changes.
 
+<br>
 
 ### Weak cohesion
 
@@ -217,12 +222,13 @@ That weakens cohesion because the class is doing too many kinds of work.
 
 So while it is functional, it also shows weaker cohesion than an ideal controller would.
 
+<br>
 
 ### Does the Architecture Make Maintenance Easier or Harder?
 
 Overall, the architecture makes maintenance somewhat easier at a high level, but harder in detail when real changes are needed.
 
-**What makes maintenance easier**  
+_**What makes maintenance easier**_  
 
 **1. Clear package separation**  
 The codebase is easier to read because UI, model, and persistence are placed in separate modules:
@@ -238,8 +244,10 @@ Core Sudoku concepts such as board, row, column, box, and field are represented 
 **3. Persistence is at least isolated into DAO-related modules**  
 The existence of `SudokuBoardDaoFactory`, `FileSudokuBoardDao`, and `JdbcSudokuBoardDao` is better than placing raw SQL directly inside UI classes.
 
-**What makes maintenance harder**  
-**1. Controllers depend directly on too many layers**
+<br>
+
+_**What makes maintenance harder**_  
+**1. Controllers depend directly on too many layers**  
 MainMenuController talks directly to persistence logic, and GameController talks directly to domain logic.
   
 **2. No service/application layer**  
@@ -268,6 +276,8 @@ Similarly, another maintenance-risk flow is:
 JavaFX `TextField` input → `GameController.createTextField()` listener → `SudokuField.setValue(...)` → `SudokuBoard.checkEndGame()`
 
 If the model later requires stricter move validation, undo history, or immutable updates, the current direct manipulation style will be harder to adapt safely.
+
+<br>
 
 ### Conclusion
 

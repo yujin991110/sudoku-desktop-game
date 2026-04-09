@@ -5,6 +5,7 @@ This project is a desktop-based Sudoku game application. It allows users to play
 
 The application provides a structured environment for playing Sudoku rather than solving it manually, managing both the game state and user interactions.
 
+<br>
 
 ### What Problem It Solves
 
@@ -16,6 +17,7 @@ The system solves the problem of managing a Sudoku game digitally. Instead of us
 
 This reduces the complexity of tracking progress manually and ensures that the game logic is handled correctly by the system.
 
+<br>
 
 ### Major Features
 
@@ -32,6 +34,7 @@ Sudoku boards are stored using SQLite, allowing data to be retrieved and reused.
 - **Validation Logic (Implicit)**  
 The system likely includes logic to validate moves or maintain constraints of Sudoku (based on the presence of model and DAO layers).
 
+<br>
 
 ### How a User Interacts with the System
 
@@ -45,6 +48,7 @@ A typical user interaction flow is as follows:
 
 The interaction is entirely GUI-based, meaning users do not need to interact with any underlying code or commands.
 
+<br>
 
 ### Understanding from Code Structure
 
@@ -56,9 +60,13 @@ Based on the project structure (e.g., View, Model, Dao), the system appears to s
 
 This indicates that the application is not just a simple UI program, but a structured system with separation of concerns.
 
+<br>
+
 ### Summary
 
 In summary, this project is a GUI-based Sudoku application that allows users to interactively solve puzzles while the system manages game logic and persistence. The system combines user interface components, game state management, and database storage to provide a complete playable experience.
+
+<br>
 
 ### Name-in-UI requirement:
 <table>

@@ -10,6 +10,7 @@ The system was set up and executed in the following environment:
 - Build Tool: Maven 3.9+
 - UI Framework: JavaFX 22
 
+<br>
 
 ### Steps Taken to Run the System
 To run the system locally, I followed the instructions provided in the repository
@@ -21,6 +22,8 @@ To run the system locally, I followed the instructions provided in the repositor
    ```
 2. Built the project using Maven: ``` mvn install ```
 3. Ran the application: ``` mvn javafx:run -pl View ```
+
+<br>
 
 ### Challenges and Issues Encountered
 Although the steps appeared straightforward, getting the system to run required significant trial and error.
@@ -44,6 +47,7 @@ I eventually identified that the application must be run from the View module us
 - **Lack of clear entry point documentation**    
   There was no explicit explanation of where the main class was located, which required manually exploring the project structure to understand how the application starts.     
 
+<br>
 
 ### How Issues Were Diagnosed and Resolved
 To resolve these issues, I used a combination of:
@@ -52,6 +56,8 @@ To resolve these issues, I used a combination of:
 - Exploring the project directory structure to understand module relationships
 - Running different Maven commands and adjusting parameters (trial-and-error)
 - Identifying the correct execution module (View) by inspecting where UI-related code exists
+
+<br>
 
 ### Overall Approach and Reflection
 My approach to getting the system running was not linear. Instead, it involved iterative experimentation and investigation.    
@@ -65,6 +71,8 @@ Through this process, I learned that:
 - Identifying the correct entry point is essential and may require manual exploration when documentation is limited
 
 Overall, the setup process provided valuable insight into how the system is structured and how its components interact, which was helpful for understanding the codebase in later stages.
+
+<br>
 
 ### Evidence
 <table>
