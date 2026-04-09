@@ -24,7 +24,8 @@ Multi-Module Maven project (MVC) of Sudoku Game with JavaFX GUI. The app provide
 ## Onboarding Steps
 1. Getting the System Running [at the following link](Setup.md)
 2. Understanding the System [at the following link](Ui.md)
-3. Architecture Exploration and Reflection [at the following link] 
+3. Architecture Exploration and Reflection [at the following link](Architecture.md)
+4. Testing and Build State [at the following link](Testing.md)
 
 ## In-Game Screenshots
 
