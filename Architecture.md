@@ -13,54 +13,51 @@ While the project is not a strict MVC implementation, it clearly separates conce
 ### How Responsibilities Are Divided Across Packages and Classes
 Responsibilities are divided reasonably clearly across the codebase.
 
-1. **View layer**
-
+1. **View layer**  
 The ```View``` module is responsible for GUI setup, scene switching, event handling, and connecting UI controls to the underlying Sudoku logic.
 
-Examples:
+    **Examples:**  
+   - ```View/src/main/java/sudoku/view/App.java```  
+   Starts the JavaFX application, loads ```MainMenu.fxml```, and sets the initial stage title and scene.
+   - ```View/src/main/java/sudoku/view/MainMenuController.java```  
+   Handles difficulty selection, language changes, loading games from file/database, and transitioning to the gameplay scene.
+   - ```View/src/main/java/sudoku/view/GameController.java```  
+   Builds the Sudoku grid in JavaFX, connects each TextField to a SudokuField, handles save actions, and checks whether the game has ended.
 
-- ```View/src/main/java/sudoku/view/App.java```  
-Starts the JavaFX application, loads ```MainMenu.fxml```, and sets the initial stage title and scene.
-- ```View/src/main/java/sudoku/view/MainMenuController.java```  
-Handles difficulty selection, language changes, loading games from file/database, and transitioning to the gameplay scene.
-- ```View/src/main/java/sudoku/view/GameController.java```  
-Builds the Sudoku grid in JavaFX, connects each TextField to a SudokuField, handles save actions, and checks whether the game has ended.
+    So the View layer is doing more than simple rendering: it also contains a lot of interaction and coordination logic.
 
-So the View layer is doing more than simple rendering: it also contains a lot of interaction and coordination logic.
 
-2. **Model layer**
-
+2. **Model layer**  
 The Model module contains the core Sudoku representation and rules.
 
-Examples:
+    **Examples:**
+   - ```Model/src/main/java/sudoku/model/models/SudokuBoard.java```  
+   Represents the whole board, gives access to rows/columns/boxes, validates the board, checks end-game state, and uses a solver.
+   - ```Model/src/main/java/sudoku/model/models/SudokuField.java```  
+   Represents a single cell and stores its value.
+   - ```SudokuRow.java```, ```SudokuColumn.java```, ```SudokuBox.java```  
+   Represent board substructures used for Sudoku validation.
+   - ```BacktrackingSudokuSolver.java```  
+   Solves the board and is used when creating a new game.
 
-- ```Model/src/main/java/sudoku/model/models/SudokuBoard.java```  
-Represents the whole board, gives access to rows/columns/boxes, validates the board, checks end-game state, and uses a solver.
-- ```Model/src/main/java/sudoku/model/models/SudokuField.java```  
-Represents a single cell and stores its value.
-- ```SudokuRow.java```, ```SudokuColumn.java```, ```SudokuBox.java```  
-Represent board substructures used for Sudoku validation.
-- ```BacktrackingSudokuSolver.java```  
-Solves the board and is used when creating a new game.
+    The Model layer therefore contains the real game state and the rules that define whether the Sudoku board is valid.
 
-The Model layer therefore contains the real game state and the rules that define whether the Sudoku board is valid.
 
-3. **Persistence layer**
-4. 
+3. **Persistence layer**  
 Persistence is split into two parts:
-- ```Dao``` contains abstractions/factory logic
-- ```JdbcDao``` contains the database-specific implementation
+   - ```Dao``` contains abstractions/factory logic
+   - ```JdbcDao``` contains the database-specific implementation
 
-Examples:
+    **Examples:**
+   - ```Dao/src/main/java/sudoku/dao/factories/SudokuBoardDaoFactory.java```  
+   Creates either a file-based DAO or a JDBC-based DAO.
+   - ```Dao/src/main/java/sudoku/dao/models/FileSudokuBoardDao.java```  
+   Handles file persistence.
+   - ```JdbcDao/src/main/java/sudoku/jdbcdao/JdbcSudokuBoardDao.java```  
+   Handles SQLite persistence using JOOQ.
 
-- ```Dao/src/main/java/sudoku/dao/factories/SudokuBoardDaoFactory.java```  
-Creates either a file-based DAO or a JDBC-based DAO.
-- ```Dao/src/main/java/sudoku/dao/models/FileSudokuBoardDao.java```  
-Handles file persistence.
-- ```JdbcDao/src/main/java/sudoku/jdbcdao/JdbcSudokuBoardDao.java```  
-Handles SQLite persistence using JOOQ.
+    This separation is useful because it distinguishes general persistence intent from concrete database implementation.
 
-This separation is useful because it distinguishes general persistence intent from concrete database implementation.
 
 ### Is There Separation Between UI and Logic?
 
