@@ -26,6 +26,7 @@ Multi-Module Maven project (MVC) of Sudoku Game with JavaFX GUI. The app provide
 2. Understanding the System [at the following link](Ui.md)
 3. Architecture Exploration and Reflection [at the following link](Architecture.md)
 4. Testing and Build State [at the following link](Testing.md)
+5. Identifying a Maintenance Opportunity [at the following link](Maintenance.md)
 
 ## In-Game Screenshots
 
